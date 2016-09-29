@@ -1,18 +1,22 @@
 <h1>Cactus Blog</h1>
  
- 
-  <% @articles.each do |article| %>
-    <div>
-      <h2><%= article.title %></h2>
-      <p><%= article.text %></p>
-      <p><div class="btn btn-success"><%= link_to 'Read more', article_path(article) %></div></p>
-      <p><%= link_to 'Edit', edit_article_path(article) %>
-      <%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></p>
-      <hr>
-    </div>
-  <% end %>
+ <div class="container-fluid">
+  
+    <% @articles.each do |article| %>
+      <div>
+        <h2><%= article.title %></h2>
+        <p><%= article.text %></p>
+        <p><div class="btn btn-success"><%= link_to 'Read more', article_path(article) %></div></p>
+        <p><%= link_to 'Edit', edit_article_path(article) %>
+        <%= link_to 'Destroy', article_path(article),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></p>
+        <hr>
+      </div>
+    <% end %>
 
-<p> To create a new article in my blog I will use this link below:</p>
-<%= link_to 'New article', new_article_path %>
+    <p> To create a new article in my blog I will use this link below:</p>
+    <%= link_to 'New article', new_article_path %>
+
+  
+</div>

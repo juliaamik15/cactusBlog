@@ -4,7 +4,7 @@
 body {
 	padding-top: 70px;
 	padding-left: 20px;
-	background-color: #b8fbb8;
+	background-color: #e4e8e4;
 	color: #146517;
   font-family: 'TradeGothicNextW01-Ligh 693250', Sans-Serif;
   font-size: 18px;
@@ -22,7 +22,7 @@ a, a:visited {
 }
 
 .site-footer{
-	color: black;
+	color: #146517;
 	width: 100%;
 	padding: 40px;
 	text-align: center;
@@ -30,7 +30,7 @@ a, a:visited {
 
 .navbar {
 	height: 50px;
-	background-color: rgb(175, 212, 131);
+	background-color: #5cb85c;
 
 	ul{
 	float: right;
@@ -43,8 +43,13 @@ a, a:visited {
 			a { 
 				text-decoration: none; 
 				font-size: 24px;
+				text-transform: uppercase;
 			}
 		}
 	}
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #e3f5e3;
 }
 
