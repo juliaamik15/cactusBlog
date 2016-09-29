@@ -1,13 +1,13 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_user!, :except => [:show, :index]
-
+		
 	 def index
     @articles = Article.all
 	 end
 
 	 def show
 	 	@article = Article.find(params[:id])
-	 	@comments = @article.comments.order("created_at DESC")
+	 	@comments = @article.comments.paginate(:page => params[:page], :per_page => 2).order("created_at DESC")
 	 end
 
 	 def new 
