@@ -1,11 +1,10 @@
 <p>
- 
   <h1><%= @article.title %></h1>
 </p>
- 
 <p>
-  
   <%= @article.text %>
 </p>
-<%= link_to 'Edit', edit_article_path(@article) %><br>
+<% if user_signed_in? %>
+ <%= link_to 'Edit', edit_article_path(@article) %><br>
+<% end %>
 <%= link_to 'Back', articles_path %>
