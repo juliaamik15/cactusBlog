@@ -4,6 +4,20 @@
 <p>
   <%= @article.text %>
 </p>
+
+<h2> Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+	<p>
+		
+		<%= f.text_area :body %>
+	</p>
+	<p>
+	  <%= f.submit %>
+	</p>
+<% end %>
+
+<%= render 'comments' %>
+
 <% if user_signed_in? %>
  <%= link_to 'Edit', edit_article_path(@article) %><br>
 <% end %>
