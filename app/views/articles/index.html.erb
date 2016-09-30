@@ -13,7 +13,7 @@
               
           </div>
         </p>
-        <% if user_signed_in? %>
+        <% if signed_in? && (current_user.role == "admin" || current_user.role == "author") %>
           <p>
             <%= link_to 'Edit', edit_article_path(article) %>
             <%= link_to 'Destroy', article_path(article),
@@ -27,7 +27,7 @@
     <% end %>
 
     <p>To create a new article in my blog you need to log in first:</p>
-    <% if user_signed_in? %>
+    <% if signed_in? && (current_user.role == "admin" || current_user.role == "author") %>
       <%= link_to 'New article', new_article_path %>
     <% end %>
 

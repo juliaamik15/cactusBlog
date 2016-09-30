@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_user!, :except => [:show, :index]
+	load_and_authorize_resource :except => [:show, :index]
 		
 	 def index
     @articles = Article.all
