@@ -1,9 +1,18 @@
 <p>
   <h1><%= @article.title %></h1>
 </p>
+
+<% unless @article.file_name.nil? %>
+	<p>
+  	<%= image_tag("/uploads/#{@article.file_name}") %>
+  </p>
+<% end %>
+
 <p>
   <%= @article.text %>
 </p>
+
+
 
 <% if signed_in? %>
 	<h2> Add a comment:</h2>

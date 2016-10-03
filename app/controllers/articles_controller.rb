@@ -8,6 +8,9 @@ class ArticlesController < ApplicationController
 
 	 def show
 	 	@article = Article.find(params[:id])
+	 	
+	 	file_name = @article.file_name
+	 	
 	 	@comments = @article.comments.paginate(:page => params[:page], :per_page => 2).order("created_at DESC")
 	 end
 
@@ -20,7 +23,15 @@ class ArticlesController < ApplicationController
 	 end
 
 	 def create 
-	 	@article = Article.new(article_params)
+	 	Dir.mkdir 'public/uploads' unless File.directory? 'public/uploads'
+	 	uploaded_io = params[:article][:picture]
+	 	  File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+    file_name = uploaded_io.original_filename
+    @article = Article.new(article_params)
+    @article.file_name = file_name
+
 	 	if @article.save
     	redirect_to @article
   	else
@@ -47,7 +58,7 @@ class ArticlesController < ApplicationController
 
 	 private 
 	 def article_params
-	 	params.require(:article).permit(:title, :text)
+	 	params.require(:article).permit(:title, :text, :file_name)
 	 end
 
 
