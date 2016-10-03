@@ -3,14 +3,11 @@ class ArticlesController < ApplicationController
 	load_and_authorize_resource :except => [:show, :index]
 		
 	 def index
-    @articles = Article.all
+    @articles = Article.all.order("created_at DESC")
 	 end
 
 	 def show
 	 	@article = Article.find(params[:id])
-	 	
-	 	file_name = @article.file_name
-	 	
 	 	@comments = @article.comments.paginate(:page => params[:page], :per_page => 2).order("created_at DESC")
 	 end
 
