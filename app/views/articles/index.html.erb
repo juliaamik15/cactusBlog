@@ -6,10 +6,10 @@
       <div>
         <h2><%= article.title %></h2>
         <p><%= article.text %></p>
-        <p><%= article.created_at.strftime "%d/%m/%Y" %>
+        <p><%= article.created_at.strftime "%d/%m/%Y" %> 
         <p>
-          <div class="btn btn-success">
-            <%= link_to 'Read more', article_path(article) %>
+          <div class="">
+            <%= link_to 'Read more >>', article_path(article) %>
               
           </div>
         </p>
