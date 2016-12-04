@@ -6,21 +6,24 @@
       <div>
         <h2><%= article.title %></h2>
         <p><%= article.text %></p>
-        <p><%= article.created_at.strftime "%d/%m/%Y" %> 
         <p>
-          <div class="">
+          <div class="creation_date">
+            <%= article.created_at.strftime "%d/%m/%Y" %> 
+          </div>
+        <p>
+          <div class="back_edit_link">
             <%= link_to 'Read more >>', article_path(article) %>
               
           </div>
         </p>
         <% if signed_in? && (current_user.role == "admin" || current_user.role == "author") %>
-          <p>
+          <div class="back_edit_link">
             <%= link_to 'Edit', edit_article_path(article) %>
             <%= link_to 'Destroy', article_path(article),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
                   
-          </p>
+          </div>
         <% end %>
         <hr>
       </div>

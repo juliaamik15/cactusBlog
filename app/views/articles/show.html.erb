@@ -29,7 +29,9 @@
 
 <%= render 'comments' %>
 
+<div class="back_edit_link">
 <% if user_signed_in? %>
  <%= link_to 'Edit', edit_article_path(@article) %><br>
 <% end %>
-<%= link_to 'Back', articles_path %>
+<%= link_to '<< Back', articles_path %>
+</div>
