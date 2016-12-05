@@ -5,6 +5,13 @@
     <% @articles.each do |article| %>
       <div>
         <h2><%= article.title %></h2>
+        <% unless article.file_name.nil? %>
+          <div id="article_picture">
+            <p>
+              <%= image_tag("/uploads/#{article.file_name}", width: '200') %>
+            </p>
+          </div>
+        <% end %>
         <p><%= article.text[0..300].html_safe+"..." %></p>
         <p>
           <div class="creation_date">
