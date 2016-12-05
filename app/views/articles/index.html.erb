@@ -5,7 +5,7 @@
     <% @articles.each do |article| %>
       <div>
         <h2><%= article.title %></h2>
-        <p><%= article.text[0..300].html_safe %></p>
+        <p><%= article.text[0..300].html_safe+"..." %></p>
         <p>
           <div class="creation_date">
             <%= article.created_at.strftime "%d/%m/%Y" %> 
