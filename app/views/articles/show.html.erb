@@ -3,9 +3,13 @@
 </p>
 
 <% unless @article.file_name.nil? %>
+<div id="article_picture">
 	<p>
-  	<%= image_tag("/uploads/#{@article.file_name}", width: '200') %>
+  	
+  		<%= image_tag("/uploads/#{@article.file_name}", width: '200') %>
+  	
   </p>
+  </div>
 <% end %>
 
 <p>

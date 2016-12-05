@@ -186,10 +186,21 @@ section{
 h2{
 	width: 80%;
 	margin: auto;
+	padding-left: 20px;
+  padding-top: 20px;
+  font-family: 'Coffee_Written_Bold';
+  font-size: 1.2em;
+}
+
+#article_picture{
+	display: block;
+	margin-bottom: 20px;
 }
 
 .back_edit_link, .creation_date{
 	display: block;
 	width: 80%;
 	margin: auto;
+	padding-left: 20px;
+	padding-top: 20px;
 }
